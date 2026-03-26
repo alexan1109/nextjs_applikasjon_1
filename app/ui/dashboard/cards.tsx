@@ -4,7 +4,7 @@ import {
   UsersIcon,
   ClipboardDocumentIcon,
 } from '@heroicons/react/24/outline';
-import { rubik } from '@/app/ui/fonts';
+import { poppins } from '@/app/ui/fonts';
 
 const iconMap = {
   earned: BanknotesIcon,
@@ -44,7 +44,7 @@ export function Card({
         <h3 className="ml-2 text-sm font-medium text-white">{title}</h3>
       </div>
       <p
-        className={`${rubik.className}
+        className={`${poppins.className}
           truncate rounded-xl bg-sky-700 px-4 py-8 text-center text-2xl text-white`}
       >
         {value}
