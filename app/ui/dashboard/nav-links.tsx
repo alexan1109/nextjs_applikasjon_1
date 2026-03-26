@@ -1,3 +1,7 @@
+'use client'
+import {usePathname} from 'next/navigation';
+import clsx from 'clsx';
+import Link from 'next/link';
 import {
   HomeModernIcon,
   ClipboardDocumentListIcon,
@@ -13,19 +17,23 @@ const links = [
 ];
 
 export default function NavLinks() {
+  const pathname = usePathname();
   return (
     <>
       {links.map((link) => {
         const LinkIcon = link.icon;
         return (
-          <a
+          <Link
             key={link.name}
             href={link.href}
-            className="text-wh flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-neutral-900 p-3 text-sm font-medium text-white hover:bg-neutral-600 hover:text-white md:flex-none md:justify-start md:p-2 md:px-3"
+            className={clsx("text-wh flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-neutral-900 p-3 text-sm font-medium text-white hover:bg-neutral-600 hover:text-white md:flex-none md:justify-start md:p-2 md:px-3",
+              {'bg-neutral-600': pathname === link.href},
+            )
+            }
           >
             <LinkIcon className="w-6" />
             <p className="hidden md:block">{link.name}</p>
-          </a>
+          </Link>
         );
       })}
     </>
