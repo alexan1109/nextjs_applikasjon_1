@@ -1,3 +1,5 @@
+import LatestInvoices from "../ui/dashboard/latest-invoices";
+
 export type User = {
   id: string;
   name: string;
@@ -79,3 +81,11 @@ export type InvoiceForm = {
   amount: number;
   status: 'awaiting' | 'fulfilled';
 };
+
+export type LatestInvoices = {
+  id: string;
+  name: string;
+  image_url: string;
+  email: string;
+  amount: string;
+}
