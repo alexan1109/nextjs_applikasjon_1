@@ -1,15 +1,21 @@
+'use client';
+
 import { poppins } from '@/app/ui/fonts';
 import {
   UserIcon,
   KeyIcon,
   ExclamationCircleIcon,
 } from '@heroicons/react/24/outline';
+import { useFormState } from 'react-dom';
+import { authenticate } from '../lib/actions';
+
 import { ArrowRightIcon } from '@heroicons/react/20/solid';
 import { Button } from './button';
 
 export default function LoginForm() {
+  const [_, dispatch] = useFormState(authenticate, undefined);
   return (
-    <form className="space-y-3">
+    <form action={dispatch} className="space-y-3">
       <div className="flex-1 rounded-lg bg-neutral-900 px-6 pb-4 pt-8">
         <h1 className={`${poppins.className} mb-3 text-3xl text-white`}>
           Please log in to continue.
